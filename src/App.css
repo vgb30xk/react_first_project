@@ -1,4 +1,13 @@
+.allofthis {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("./components/wallpaperbetter.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .app-style {
+  color: white;
   padding: 100px;
   display: flex;
   gap: 12px;
@@ -12,4 +21,15 @@
   height: 100px;
   border: 1px solid green;
   border-radius: 8px;
+}
+
+.inputside {
+  display: flex;
+  padding-left: 100px;
+  gap: 10px;
+}
+
+input {
+  display: flex;
+  width: 200px;
 }

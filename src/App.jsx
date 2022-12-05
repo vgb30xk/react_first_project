@@ -15,12 +15,16 @@ const App = () => {
   const [age, setAge] = useState("");
 
   const addUserHandler = () => {
-    const newUser = {
-      id: users.length + 1,
-      age: age,
-      name: name,
-    };
-    setUsers([...users, newUser]);
+    if (age === "" || isNaN(age)) {
+      return alert("나이를 숫자로 입력하시오");
+    } else {
+      const newUser = {
+        id: users.length + 1,
+        age: age,
+        name: name,
+      };
+      setUsers([...users, newUser]);
+    }
   };
 
   const deleteUserHandler = (id) => {
@@ -29,38 +33,36 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="allofthis">
       <div className="app-style">
         {users.map((user) => {
-          if (user.age < 25) {
-            return (
-              <User
-                handleDelete={deleteUserHandler}
-                user={user}
-                key={user.id}
-              ></User>
-            );
-          } else {
-            return null;
-          }
+          return (
+            <User
+              handleDelete={deleteUserHandler}
+              user={user}
+              key={user.id}
+            ></User>
+          );
         })}
       </div>
 
-      <input
-        value={name}
-        placeholder="이름을 입력해주세요"
-        // 인풋 이벤트로 들어온 입력 값을 name의 값으로 업데이트
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        value={age}
-        placeholder="나이를 입력해주세요"
-        // 인풋 이벤트로 들어온 입력 값을 age의 값으로 업데이트
-        onChange={(e) => setAge(e.target.value)}
-      />
-      <CustomButton color="green" onClick={addUserHandler}>
-        추가하기
-      </CustomButton>
+      <div className="inputside">
+        <input
+          value={name}
+          placeholder="이름을 입력해주세요"
+          // 인풋 이벤트로 들어온 입력 값을 name의 값으로 업데이트
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          value={age}
+          placeholder="나이를 입력해주세요"
+          // 인풋 이벤트로 들어온 입력 값을 age의 값으로 업데이트
+          onChange={(e) => setAge(e.target.value)}
+        />
+        <CustomButton color="green" onClick={addUserHandler}>
+          추가하기
+        </CustomButton>
+      </div>
     </div>
   );
 };
