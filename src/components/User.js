@@ -3,7 +3,7 @@ import CustomButton from "./CustomButton";
 function User(props) {
   return (
     <div className="square-style">
-      {props.user.title} {props.user.name}
+      <h2>{props.user.title}</h2> {props.user.contents}
       <CustomButton
         color="red"
         onClick={() => {
@@ -11,6 +11,14 @@ function User(props) {
         }}
       >
         삭제하기
+      </CustomButton>
+      <CustomButton
+        color="green"
+        onClick={() => {
+          props.handleDelete(props.user.id);
+        }}
+      >
+        완료
       </CustomButton>
     </div>
   );

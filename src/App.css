@@ -65,3 +65,13 @@
   padding: 12px 24px 24px;
   width: 270px;
 }
+
+.deleteBtn {
+  background-color: #fff;
+  border: 2px solid red;
+}
+
+.completeBtn {
+  background-color: #fff;
+  border: 2px solid green;
+}
