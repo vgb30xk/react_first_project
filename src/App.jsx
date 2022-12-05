@@ -5,26 +5,20 @@ import User from "./components/User";
 
 const App = () => {
   const [users, setUsers] = useState([
-    { id: 1, age: 30, name: "송중기" },
-    { id: 2, age: 24, name: "송강" },
-    { id: 3, age: 21, name: "이범규" },
-    { id: 4, age: 29, name: "구교환" },
+    { id: 1, title: 30, name: "송중기" },
+    { id: 2, title: 24, name: "송강" },
   ]);
 
   const [name, setName] = useState("");
-  const [age, setAge] = useState("");
+  const [title, setTitle] = useState("");
 
   const addUserHandler = () => {
-    if (age === "" || isNaN(age)) {
-      return alert("나이를 숫자로 입력하시오");
-    } else {
-      const newUser = {
-        id: users.length + 1,
-        age: age,
-        name: name,
-      };
-      setUsers([...users, newUser]);
-    }
+    const newUser = {
+      id: users.length + 1,
+      title: title,
+      name: name,
+    };
+    setUsers([...users, newUser]);
   };
 
   const deleteUserHandler = (id) => {
@@ -33,35 +27,63 @@ const App = () => {
   };
 
   return (
-    <div className="allofthis">
-      <div className="app-style">
-        {users.map((user) => {
-          return (
-            <User
-              handleDelete={deleteUserHandler}
-              user={user}
-              key={user.id}
-            ></User>
-          );
-        })}
+    <div className="allbox">
+      <div className="topbar">
+        <div className="topbar_todo"> My Todo List</div>
+        <div className="topbar_react">React</div>
       </div>
 
       <div className="inputside">
-        <input
-          value={name}
-          placeholder="이름을 입력해주세요"
-          // 인풋 이벤트로 들어온 입력 값을 name의 값으로 업데이트
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          value={age}
-          placeholder="나이를 입력해주세요"
-          // 인풋 이벤트로 들어온 입력 값을 age의 값으로 업데이트
-          onChange={(e) => setAge(e.target.value)}
-        />
-        <CustomButton color="green" onClick={addUserHandler}>
+        <div className="input_group">
+          <label className="form_label">제목</label>
+          <input
+            className="add_input"
+            value={name}
+            placeholder="이름을 입력해주세요"
+            // 인풋 이벤트로 들어온 입력 값을 name의 값으로 업데이트
+            onChange={(e) => setName(e.target.value)}
+          />
+          <label className="form_label">내용</label>
+          <input
+            className="add_input"
+            value={title}
+            placeholder="나이를 입력해주세요"
+            // 인풋 이벤트로 들어온 입력 값을 age의 값으로 업데이트
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
+
+        <CustomButton className="addBtn" color="teal" onClick={addUserHandler}>
           추가하기
         </CustomButton>
+      </div>
+
+      <div className="list_contain">
+        <h2>Working.. 🔥</h2>
+        <div className="app-style">
+          {users.map((user) => {
+            return (
+              <User
+                handleDelete={deleteUserHandler}
+                user={user}
+                key={user.id}
+              ></User>
+            );
+          })}
+        </div>
+
+        <h2>Done..! 🎉</h2>
+        <div className="app-style">
+          {users.map((user) => {
+            return (
+              <User
+                handleDelete={deleteUserHandler}
+                user={user}
+                key={user.id}
+              ></User>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

@@ -1,35 +1,67 @@
-.allofthis {
-  height: 100vh;
-  width: 100vw;
-  background-image: url("./components/wallpaperbetter.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+.all {
+  -webkit-font-smoothing: antialiased;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+.allbox {
+  margin: 0 auto;
+  max-width: 1200px;
+  min-width: 800px;
+}
+
+.topbar {
+  align-items: center;
+  border: 1px solid #ddd;
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.inputside {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  background-color: #eee;
+  border-radius: 12px;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 30px;
+}
+.form_label {
+  font-size: 16px;
+  font-weight: 700;
+}
+.input_group {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+}
+.add_input {
+  border: none;
+  border-radius: 12px;
+  height: 40px;
+  padding: 0 12px;
+  width: 240px;
+}
+.addBtn {
+  width: 100px;
+}
+
+.list_contain {
+  padding: 0 24px;
 }
 
 .app-style {
-  color: white;
-  padding: 100px;
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
 }
 
 .square-style {
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  width: 100px;
-  height: 100px;
-  border: 1px solid green;
-  border-radius: 8px;
-}
-
-.inputside {
-  display: flex;
-  padding-left: 100px;
-  gap: 10px;
-}
-
-input {
-  display: flex;
-  width: 200px;
+  border: 4px solid teal;
+  border-radius: 12px;
+  padding: 12px 24px 24px;
+  width: 270px;
 }
