@@ -1,10 +1,10 @@
 function CustomButton(props) {
-  const { color, onClick, children } = props;
-  if (color) {
+  const { addcolor, color, onClick, children } = props;
+  if (addcolor) {
     return (
       <button
         style={{
-          backgroundColor: color,
+          backgroundColor: addcolor,
           color: "white",
           border: "none",
           borderRadius: "10px",
@@ -17,8 +17,25 @@ function CustomButton(props) {
         {children}
       </button>
     );
+  } else {
+    return (
+      <button
+        style={{
+          backgroundColor: "white",
+          border: "2px",
+          borderStyle: "solid",
+          borderColor: color,
+          cursor: "pointer",
+          borderRadius: "8px",
+          height: "40px",
+          width: "50%",
+        }}
+        onClick={onClick}
+      >
+        {children}
+      </button>
+    );
   }
-  return <button onClick={onClick}>{children}</button>;
 }
 
 export default CustomButton;
